@@ -18,13 +18,7 @@ def _read_lastfm_consum() -> List[Tuple[int, int, int]]:
             values = line.strip().split('\t')
             user_id, artist_id, weight_id = int(values[0]), int(values[1]), int(values[2])
             data.append((user_id, artist_id, weight_id))
-    # 过滤数据：过滤消费记录和社交链接少于4条的用户，以及评分少于4条用户的项目。
-    # data_or = pd.DataFrame(data, columns=['user_i', 'item_a', 'label'], dtype=int)
-    # data1 = data_or.groupby('user_i').filter(lambda x: (len(x) > 3))
-    # data2 = data1.groupby('item_a').filter(lambda x: (len(x) > 3))
-    # df = pd.DataFrame(data2)
-    # data = df.apply(lambda x: tuple(x), axis=1).values.tolist()
-
+    # 过滤数据：过滤消费记录和社交链接少于4条的用户，以及评分少于k条用户的项目。
     data_0 = pd.DataFrame(data, columns=['user_i', 'item_a', 'label'], dtype=int)
     data1 = data_0.groupby('user_i').filter(lambda x: (len(x) > k))
     data2 = data_0.groupby('item_a').filter(lambda x: (len(x) > k))
