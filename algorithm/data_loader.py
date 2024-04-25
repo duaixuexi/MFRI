@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 # 记下ds文件夹的路径，确保其它py文件调用时读文件路径正确
-ds_path = r'D://Desktop/Recommender-System-master/Recommender_System/data/ds/'
+ds_path = r'D://Desktop/MFRI/data/'
 
 k = 4
 # 读取 lastfm
